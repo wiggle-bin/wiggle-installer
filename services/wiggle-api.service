@@ -1,12 +1,11 @@
 [Unit]
-Description=WiggleCamera service
+Description=WiggleApi service
 After=network.target
 
 [Service]
-WorkingDirectory=/home/WiggleBin/packages/wiggle-api/src/wiggle_api
-ExecStart=/home/WiggleBin/packages/.venv/bin/python3 /home/WiggleBin/packages/wiggle-api/src/wiggle_api/main.py
-Environment="PATH=/home/WiggleBin/packages/venv/bin"
-Restart=always
+WorkingDirectory=/home/wiggle/WiggleBin/packages/venv/lib/python3.11/site-packages/wiggle_api
+ExecStart=/home/wiggle/WiggleBin/packages/venv/bin/python3 /home/wiggle/WiggleBin/packages/venv/lib/python3.11/site-packages/wiggle_api/main.py
+Environment="PATH=/home/wiggle/WiggleBin/packages/venv/bin:/home/wiggle/WiggleBin/packages/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
 
 [Install]
 WantedBy=default.target

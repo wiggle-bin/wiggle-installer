@@ -33,6 +33,9 @@ setup_virtualenv() {
 
 setup_services() {
   echo "Copying files to ~/.config/systemd/user/..."
+  if [ ! -d ~/.config/systemd/user/ ]; then
+    mkdir -p ~/.config/systemd/user/
+  fi
   cp -r services/* ~/.config/systemd/user/
   echo "Files copied."
   echo "Enabling services..."
