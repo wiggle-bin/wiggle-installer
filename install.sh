@@ -14,17 +14,24 @@ create_directories() {
 }
 
 # Function to create a virtual environment and install packages
-setup_virtualenv() {
+setup_cli_packages() {
+  if [[ ":$PATH:" != *":/home/wiggle/.local/bin:"* ]]; then
+    export PATH="$PATH:/home/wiggle/.local/bin"
+  fi
+
   packagesSystemWide="wiggle-camera"
   pip install $packagesSystemWide --break-system-packages
-  
+}
+
+# Function to create a virtual environment and install packages
+setup_virtualenv() {
   echo "Setting up virtual environment..."
   python3 -m venv "~/$folder/packages/venv"
   source "~/$folder/packages/venv/bin/activate"
   
   # Packages to install
-  # packagesSystemWide="wiggle-camera wiggle-light"
   # packages="wiggle-api wiggle-dashboard wiggle-settings wiggle-sensors wiggle-services"
+  packages="wiggle-api"
 
   # Install the packages
   pip install --upgrade pip
@@ -32,7 +39,7 @@ setup_virtualenv() {
 
   wiggle-camera-install
   # wiggle-light-install
-  # wiggle-api-install
+  wiggle-api-install
   # wiggle-gate-install
   # wiggle-motion-install
   # wiggle-settings-install
@@ -44,6 +51,7 @@ setup_virtualenv() {
 
 # Run the functions
 create_directories
+setup_cli_packages
 setup_virtualenv
 
 echo "Installation complete!"
