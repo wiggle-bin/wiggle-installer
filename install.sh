@@ -5,11 +5,11 @@ folder="WiggleBin"
 # Function to create directories
 create_directories() {
   echo "Creating directories..."
-  mkdir -p "~/$folder"
-  mkdir -p "~/$folder/packages"
-  mkdir -p "~/$folder/sensor-data"
-  mkdir -p "~/$folder/pictures"
-  mkdir -p "~/$folder/zip"
+  mkdir -p ~/$folder
+  mkdir -p ~/$folder/packages
+  mkdir -p ~/$folder/sensor-data
+  mkdir -p ~/$folder/pictures
+  mkdir -p ~/$folder/zip
   echo "Directories created at "~/$folder.""
 }
 
@@ -21,6 +21,8 @@ setup_cli_packages() {
 
   packagesSystemWide="wiggle-camera"
   pip install $packagesSystemWide --break-system-packages
+
+  wiggle-camera-install
 }
 
 # Function to create a virtual environment and install packages
@@ -37,7 +39,6 @@ setup_virtualenv() {
   pip install --upgrade pip
   pip install $packages
 
-  wiggle-camera-install
   # wiggle-light-install
   wiggle-api-install
   # wiggle-gate-install
