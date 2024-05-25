@@ -14,40 +14,34 @@ create_directories() {
 }
 
 # Function to create a virtual environment and install packages
-setup_cli_packages() {
-  if [[ ":$PATH:" != *":/home/wiggle/.local/bin:"* ]]; then
-    export PATH="$PATH:/home/wiggle/.local/bin"
-  fi
-
-  packagesSystemWide="wiggle-camera"
-  pip install $packagesSystemWide --break-system-packages
-
-  wiggle-camera-install
-}
-
-# Function to create a virtual environment and install packages
 setup_virtualenv() {
   echo "Setting up virtual environment..."
   python3 -m venv ~/$folder/packages/venv
   source ~/$folder/packages/venv/bin/activate
   
   # Packages to install
-  # packages="wiggle-api wiggle-dashboard wiggle-settings wiggle-sensors wiggle-services"
-  packages="wiggle-api"
+  # packages="wiggle-api wiggle-dashboard wiggle-settings wiggle-sensors"
+  packages="wiggle-api wiggle-camera"
 
   # Install the packages
   pip install --upgrade pip
   pip install $packages
 
-  # wiggle-light-install
-  wiggle-api-install
-  # wiggle-gate-install
-  # wiggle-motion-install
-  # wiggle-settings-install
-  # wiggle-soil-temperature-install
-
   echo "Packages installed: $packages"
   deactivate
+}
+
+setup_services() {
+  echo "Copying files to ~/.config/systemd/user/..."
+  cp -r services/* ~/.config/systemd/user/
+  echo "Files copied."
+  echo "Enabling services..."
+  systemctl --user enable wiggle-camera.service
+  systemctl --user enable wiggle-api.service
+  # systemctl --user enable wiggle-dashboard.service
+  # systemctl --user enable wiggle-settings.service
+  # systemctl --user enable wiggle-sensors.service
+  echo "Services enabled."
 }
 
 # Run the functions

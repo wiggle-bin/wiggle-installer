@@ -1,0 +1,12 @@
+[Unit]
+Description=WiggleCamera service
+After=network.target
+
+[Service]
+WorkingDirectory=/home/WiggleBin/packages/wiggle-api/src/wiggle_api
+ExecStart=/home/WiggleBin/packages/.venv/bin/python3 /home/WiggleBin/packages/wiggle-api/src/wiggle_api/main.py
+Environment="PATH=/home/WiggleBin/packages/venv/bin"
+Restart=always
+
+[Install]
+WantedBy=default.target
