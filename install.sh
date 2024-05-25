@@ -35,7 +35,7 @@ setup_virtualenv() {
 
   # Install the packages
   pip install --upgrade pip
-  # pip install $packages
+  pip install $packages
 
   wiggle-camera-install
   # wiggle-light-install
