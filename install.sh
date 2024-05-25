@@ -37,7 +37,9 @@ setup_services() {
   echo "Files copied."
   echo "Enabling services..."
   systemctl --user enable wiggle-camera.service
+  systemctl --user start wiggle-camera.service
   systemctl --user enable wiggle-api.service
+  systemctl --user start wiggle-api.service
   # systemctl --user enable wiggle-dashboard.service
   # systemctl --user enable wiggle-settings.service
   # systemctl --user enable wiggle-sensors.service
@@ -46,7 +48,7 @@ setup_services() {
 
 # Run the functions
 create_directories
-setup_cli_packages
 setup_virtualenv
+setup_services
 
 echo "Installation complete!"
