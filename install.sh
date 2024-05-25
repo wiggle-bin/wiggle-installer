@@ -28,8 +28,8 @@ setup_cli_packages() {
 # Function to create a virtual environment and install packages
 setup_virtualenv() {
   echo "Setting up virtual environment..."
-  python3 -m venv "~/$folder/packages/venv"
-  source "~/$folder/packages/venv/bin/activate"
+  python3 -m venv ~/$folder/packages/venv
+  source ~/$folder/packages/venv/bin/activate
   
   # Packages to install
   # packages="wiggle-api wiggle-dashboard wiggle-settings wiggle-sensors wiggle-services"
