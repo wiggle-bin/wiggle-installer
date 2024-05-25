@@ -15,6 +15,9 @@ create_directories() {
 
 # Function to create a virtual environment and install packages
 setup_virtualenv() {
+  packagesSystemWide="wiggle-camera"
+  pip install $packagesSystemWide --break-system-packages
+  
   echo "Setting up virtual environment..."
   python3 -m venv "~/$folder/packages/venv"
   source "~/$folder/packages/venv/bin/activate"
@@ -22,11 +25,9 @@ setup_virtualenv() {
   # Packages to install
   # packagesSystemWide="wiggle-camera wiggle-light"
   # packages="wiggle-api wiggle-dashboard wiggle-settings wiggle-sensors wiggle-services"
-  packagesSystemWide="wiggle-camera"
 
   # Install the packages
   pip install --upgrade pip
-  pip install $packagesSystemWide --break-system-packages
   # pip install $packages
 
   wiggle-camera-install
