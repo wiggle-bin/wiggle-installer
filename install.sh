@@ -16,7 +16,7 @@ create_directories() {
 # Function to create a virtual environment and install packages
 setup_virtualenv() {
   echo "Setting up virtual environment..."
-  python3 -m venv ~/$folder/packages/venv
+  python3 -m venv --system-site-packages ~/$folder/packages/venv
   source ~/$folder/packages/venv/bin/activate
   
   # Packages to install

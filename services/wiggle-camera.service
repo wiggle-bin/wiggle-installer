@@ -5,7 +5,7 @@ After=network.target
 [Service]
 WorkingDirectory=%h/WiggleBin/packages/venv/lib/python3.11/site-packages/wiggle_camera
 ExecStart=%h/WiggleBin/packages/venv/bin/python3 %h/WiggleBin/packages/venv/lib/python3.11/site-packages/wiggle_camera/main.py --recording
-Environment="PATH=%h/WiggleBin/packages/venv/bin:%h/WiggleBin/packages/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
+Environment="PATH=%h/WiggleBin/packages/venv/bin"
 Restart=always
 
 [Install]
