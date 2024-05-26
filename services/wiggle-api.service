@@ -3,8 +3,7 @@ Description=WiggleApi service
 After=network.target
 
 [Service]
-WorkingDirectory=%h/WiggleBin/packages/venv/lib/python3.11/site-packages/wiggle_api
-ExecStart=%h/WiggleBin/packages/venv/bin/python3 %h/WiggleBin/packages/venv/lib/python3.11/site-packages/wiggle_api/main.py
+ExecStart=%h/WiggleBin/packages/venv/bin/python %h/WiggleBin/packages/venv/lib/python/site-packages/wiggle_api/main.py
 Environment="PATH=%h/WiggleBin/packages/venv/bin"
 
 [Install]
