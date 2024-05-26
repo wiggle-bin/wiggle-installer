@@ -25,7 +25,7 @@ setup_virtualenv() {
 
   # Install the packages
   pip install --upgrade pip
-  pip install $packages
+  pip install --upgrade $packages
 
   echo "Packages installed: $packages"
   deactivate
