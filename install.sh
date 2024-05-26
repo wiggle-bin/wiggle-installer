@@ -24,8 +24,8 @@ setup_virtualenv() {
   packages="wiggle-api wiggle-camera"
 
   # Install the packages
-  pip install --upgrade pip
-  pip install --upgrade $packages
+  pip install -q --upgrade pip
+  pip install -q --upgrade $packages
 
   echo "Packages installed: $packages"
   deactivate
