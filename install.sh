@@ -41,11 +41,10 @@ setup_services() {
   echo "Enabling services..."
   systemctl --user enable wiggle-camera.service
   systemctl --user start wiggle-camera.service
+  systemctl --user enable wiggle-camera-light.service
+  systemctl --user start wiggle-camera-light.service
   systemctl --user enable wiggle-api.service
   systemctl --user start wiggle-api.service
-  # systemctl --user enable wiggle-dashboard.service
-  # systemctl --user enable wiggle-settings.service
-  # systemctl --user enable wiggle-sensors.service
   echo "Services enabled."
 }
 
