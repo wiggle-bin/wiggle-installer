@@ -1,6 +1,6 @@
 #!/bin/bash
 
-setup_virtualenv() {
+setup_packages() {
   echo "Setting up virtual environment..."
   python3 -m venv --system-site-packages ~/$folder/packages/venv
   source ~/$folder/packages/venv/bin/activate
@@ -20,5 +20,5 @@ setup_virtualenv() {
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
-  setup_virtualenv
+  setup_packages
 fi
