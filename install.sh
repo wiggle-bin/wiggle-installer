@@ -13,7 +13,7 @@ create_directories() {
   mkdir -p ~/$folder/packages
   mkdir -p ~/$folder/sensor-data
   mkdir -p ~/$folder/pictures
-  mkdir -p ~/$folder/zip
+  mkdir -p ~/$folder/zips
   mkdir -p ~/$folder/videos
   echo "Directories created at "~/$folder.""
 }

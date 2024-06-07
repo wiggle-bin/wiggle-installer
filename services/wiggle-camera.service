@@ -5,7 +5,6 @@ After=network.target
 [Service]
 ExecStart=%h/WiggleBin/packages/.venv/bin/python3.11 %h/WiggleBin/packages/.venv/lib/python3.11/site-packages/wiggle_camera/main.py --picture
 Environment="PATH=%h/WiggleBin/packages/.venv/bin"
-Restart=always
 
 [Install]
 WantedBy=default.target
