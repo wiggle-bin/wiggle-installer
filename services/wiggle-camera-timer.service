@@ -1,0 +1,10 @@
+[Unit]
+Description=Runs wiggle-camera service every second
+
+[Timer]
+OnCalendar=*:*:*:00
+AccuracySec=1us
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -31,3 +31,41 @@ To install the project on a Raspberry Pi, follow these steps:
 5. Follow any additional instructions provided by the script.
 
 Once the installation is complete, you can proceed with using the project on your Raspberry Pi.
+
+## Checking on services
+
+List all Wiggle services:
+
+```bash
+systemctl --user list-units --type=service | grep 'wiggle'
+```
+
+You can check the status with:
+
+```bash
+systemctl --user status [name].service
+```
+
+To stop the service run:
+
+```bash
+systemctl --user stop [name].service
+```
+
+To start the service run:
+
+```bash
+systemctl --user start [name].service
+```
+
+Watching output of the service:
+
+```bash
+journalctl --user-unit=[name].service -f
+```
+
+List all the timers
+
+```bash
+systemctl --user list-timers
+```

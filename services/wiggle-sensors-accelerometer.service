@@ -1,0 +1,10 @@
+[Unit]
+Description=WiggleAccelerometer service
+After=network.target
+
+[Service]
+ExecStart=%h/WiggleBin/packages/.venv/bin/python3.11 %h/WiggleBin/packages/wiggle-sensors/src/wiggle_sensors/accelerometer.py
+Environment="PATH=%h/WiggleBin/packages/venv/bin"
+
+[Install]
+WantedBy=default.target
