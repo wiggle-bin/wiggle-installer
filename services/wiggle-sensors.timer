@@ -1,5 +1,5 @@
 [Unit]
-Description=Runs wiggle-sensors service every hour
+Description=Run wiggle-sensors.service every hour
 
 [Timer]
 OnCalendar=hourly

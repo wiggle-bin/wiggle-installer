@@ -2,8 +2,8 @@
 
 setup_development() {
   echo "Setting up virtual environment..."
-  python3 -m venv --system-site-packages ~/$folder/packages/venv
-  source ~/$folder/packages/venv/bin/activate
+  python3 -m venv --system-site-packages ~/$folder/packages/.venv
+  source ~/$folder/packages/.venv/bin/activate
   
   echo "Cloning repositories..."
 
@@ -17,6 +17,7 @@ setup_development() {
   echo "Installing packages for each repository..."
   for repo in "${repositories[@]}"; do
     pip install ~/$folder/packages/$repo
+    pip install -r ~/$folder/packages/$repo/requirements.txt
   done
   
   echo "Repositories cloned and packages installed"

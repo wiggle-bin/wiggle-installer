@@ -20,13 +20,13 @@ create_directories() {
 
 # Run the functions
 create_directories
-setup_packages
 
 if [ "$environment" = "development" ]; then
   setup_development
 else
   setup_packages
 fi
+
 setup_services
 
 echo "Installation complete!"

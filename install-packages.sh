@@ -2,8 +2,8 @@
 
 setup_packages() {
   echo "Setting up virtual environment..."
-  python3 -m venv --system-site-packages ~/$folder/packages/venv
-  source ~/$folder/packages/venv/bin/activate
+  python3 -m venv --system-site-packages ~/$folder/packages/.venv
+  source ~/$folder/packages/.venv/bin/activate
   
   echo "Installing packages..."
 
