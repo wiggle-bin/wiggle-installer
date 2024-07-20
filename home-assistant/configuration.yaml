@@ -1,0 +1,73 @@
+# Loads default set of integrations. Do not remove.
+default_config:
+
+automation: !include automations.yaml
+
+shell_command:
+  download_file: wget -O /media/{{ filename }} {{ url }}
+  
+camera:
+  - platform: generic
+    name: Local Video
+    still_image_url: http://wigglebin.local:5000/videos/hourly
+    stream_source: http://wigglebin.local:5000/videos/hourly
+
+sensor:
+  - platform: rest
+    resource: http://wigglebin.local:5000/
+    name: WiggleBin Hello
+    value_template: '{{ value_json.worm }}'
+  - platform: rest
+    resource: http://wigglebin.local:5000/sensors/
+    name: WiggleBin Humidity
+    value_template: '{{ value_json.environment.humidity }}'
+    device_class: humidity
+    state_class: measurement
+  - platform: rest
+    resource: http://wigglebin.local:5000/sensors/
+    name: WiggleBin Pressure
+    value_template: '{{ value_json.environment.pressure }}'
+    device_class: pressure
+    state_class: measurement
+  - platform: rest
+    resource: http://wigglebin.local:5000/sensors/
+    name: WiggleBin Temperature
+    value_template: '{{ value_json.environment.temperature }}'
+    device_class: temperature
+    state_class: measurement
+  - platform: rest
+    resource: http://wigglebin.local:5000/sensors/
+    name: WiggleBin Soil Temperature
+    value_template: '{{ value_json.soil.temperature }}'
+    device_class: temperature
+    state_class: measurement
+  - platform: rest
+    resource: http://wigglebin.local:5000/sensors/
+    name: WiggleBin Image Mean Gray
+    value_template: '{{ value_json.image.mean_gray }}'
+    device_class: illuminance
+    state_class: measurement
+  - platform: rest
+    resource: http://wigglebin.local:5000/sensors/
+    name: WiggleBin Image Pixels Shifted To Dark
+    value_template: '{{ value_json.image.darker_count_pixels }}'
+    device_class: illuminance
+    state_class: measurement
+  - platform: rest
+    resource: http://wigglebin.local:5000/sensors/
+    name: WiggleBin Image Pixels Shifted To Light
+    value_template: '{{ value_json.image.lighter_count_pixels }}'
+    device_class: illuminance
+    state_class: measurement
+  - platform: rest
+    resource: http://wigglebin.local:5000/sensors/
+    name: WiggleBin Worm Like Shapes
+    value_template: '{{ value_json.image.lighter_large_count }}'
+    device_class: illuminance
+    state_class: measurement
+  - platform: rest
+    resource: http://wigglebin.local:5000/sensors/
+    name: WiggleBin Small Non-Worm Movements
+    value_template: '{{ value_json.image.lighter_small_count }}'
+    device_class: illuminance
+    state_class: measurement

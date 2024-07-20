@@ -1,0 +1,70 @@
+views:
+  - title: Home
+    cards:
+      - type: entity
+        entity: sensor.wigglebin_hello
+        icon: mdi:compost
+      - graph: line
+        type: sensor
+        detail: 1
+        entity: sensor.wigglebin_temperature
+      - graph: line
+        type: sensor
+        entity: sensor.wigglebin_soil_temperature
+        detail: 1
+      - chart_type: line
+        period: hour
+        type: statistics-graph
+        entities:
+          - sensor.wigglebin_temperature
+          - sensor.wigglebin_soil_temperature
+        stat_types:
+          - mean
+        days_to_show: 1
+        title: 'Soil vs air temperature '
+      - type: weather-forecast
+        entity: weather.forecast_home
+        forecast_type: daily
+      - graph: line
+        type: sensor
+        detail: 1
+        entity: sensor.wigglebin_humidity
+      - graph: line
+        type: sensor
+        detail: 1
+        entity: sensor.wigglebin_pressure
+      - graph: line
+        type: sensor
+        entity: sensor.wigglebin_image_mean_gray
+        detail: 1
+      - graph: line
+        type: sensor
+        entity: sensor.wigglebin_worm_like_shapes
+        detail: 1
+        icon: mdi:abugida-thai
+      - graph: line
+        type: sensor
+        entity: sensor.wigglebin_small_non_worm_movements
+        detail: 1
+        icon: mdi:bug
+      - chart_type: line
+        period: 5minute
+        type: statistics-graph
+        entities:
+          - sensor.wigglebin_image_pixels_shifted_to_dark
+          - sensor.wigglebin_image_pixels_shifted_to_light
+        stat_types:
+          - mean
+        days_to_show: 1
+        hide_legend: false
+        title: Activity
+      - chart_type: line
+        period: 5minute
+        type: statistics-graph
+        entities:
+          - sensor.wigglebin_image_mean_gray
+        stat_types:
+          - mean
+        days_to_show: 1
+        title: Worms Eating
+        hide_legend: false

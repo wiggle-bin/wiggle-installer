@@ -1,0 +1,41 @@
+- id: 'automation_wiggle_bin_hourly_video'
+  alias: Download WiggleBin Hourly Video
+  description: Download an hourly video from WiggleBin
+  trigger:
+  - platform: time_pattern
+    minutes: '01'
+  condition: []
+  action:
+  - service: shell_command.download_file
+    data:
+      url: http://wigglebin.local:5000/video/hourly.mp4
+      filename: hourly.mp4
+  mode: single
+- id: 'automation_wiggle_bin_daily_video'
+  alias: Download WiggleBin Daily Video
+  description: Download a daily video from WiggleBin
+  trigger:
+  - platform: time_pattern
+    hours: '0'
+    minutes: '1'
+    seconds: '1'
+  condition: []
+  action:
+  - service: shell_command.download_file
+    data:
+      url: http://wigglebin.local:5000/video/daily.mp4
+      filename: daily.mp4
+  mode: single
+- id: 'automation_wiggle_bin_latest_image'
+  alias: Download WiggleBin Latest Image
+  description: Download the latest image from WiggleBin
+  trigger:
+  - platform: time_pattern
+    minutes: '1'
+  condition: []
+  action:
+  - service: shell_command.download_file
+    data:
+      url: http://wigglebin.local:5000/image/latest.jpg
+      filename: latest.jpg
+  mode: single
