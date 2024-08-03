@@ -43,6 +43,12 @@ sensor:
     state_class: measurement
   - platform: rest
     resource: http://wigglebin.local:5000/sensors/
+    name: WiggleBin Soil Moisture
+    value_template: '{{ value_json.soil_moisture.percentage }}'
+    device_class: moisture
+    state_class: measurement
+  - platform: rest
+    resource: http://wigglebin.local:5000/sensors/
     name: WiggleBin Image Mean Gray
     value_template: '{{ value_json.image.mean_gray }}'
     device_class: illuminance
