@@ -1,0 +1,9 @@
+[Unit]
+Description=WiggleInference service
+After=network.target
+
+[Service]
+ExecStart=sudo docker run --net=host roboflow/inference-server:cpu
+
+[Install]
+WantedBy=default.target

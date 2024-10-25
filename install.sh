@@ -1,5 +1,6 @@
 #!/bin/bash
 
+source install-inference.sh
 source install-services.sh
 source install-packages.sh
 source install-development.sh
