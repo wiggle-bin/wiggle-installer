@@ -12,8 +12,9 @@ setup_packages() {
   packages="wiggle-api wiggle-camera"
 
   # Install the packages
-  pip install -q --upgrade pip
-  pip install -q --upgrade $packages
+  pip uninstall -y $packages
+  pip install --upgrade pip setuptools
+  pip install --upgrade $packages
 
   echo "Packages installed: $packages"
   deactivate
