@@ -5,15 +5,18 @@ setup_packages() {
   python3 -m venv --system-site-packages ~/$folder/packages/.venv
   source ~/$folder/packages/.venv/bin/activate
   
-  echo "Installing packages..."
 
   # Packages to install
   # packages="wiggle-api wiggle-dashboard wiggle-settings wiggle-sensors"
   packages="wiggle-api wiggle-camera"
 
-  # Install the packages
+  echo "Uninstalling packages..."
   pip uninstall -y $packages
+
+  echo "Updating pip and setuptools..."
   pip install --upgrade pip setuptools
+
+  echo "Installing packages..."
   pip install --upgrade $packages
 
   echo "Packages installed: $packages"
