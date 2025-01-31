@@ -8,7 +8,7 @@ setup_packages() {
 
   # Packages to install
   # packages="wiggle-api wiggle-dashboard wiggle-settings wiggle-sensors"
-  packages="wiggle-api wiggle-camera"
+  packages="wiggle-api wiggle-camera wiggle-sensors"
 
   echo "Uninstalling packages..."
   pip uninstall -y $packages
