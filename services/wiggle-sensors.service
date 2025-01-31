@@ -3,7 +3,7 @@ Description=WiggleSensors service
 After=network.target
 
 [Service]
-ExecStart=%h/WiggleBin/packages/.venv/bin/python3.11 %h/WiggleBin/packages/wiggle-sensors/src/wiggle_sensors/hourly.py
+ExecStart=%h/WiggleBin/packages/.venv/bin/python3.11 %h/WiggleBin/packages/.venv/lib/python3.11/site-packages/wiggle-sensors/hourly.py
 Environment="PATH=%h/WiggleBin/packages/.venv/bin"
 
 [Install]

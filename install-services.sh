@@ -13,7 +13,7 @@ setup_services() {
   systemctl --user enable --now wiggle-camera.timer
   systemctl --user enable --now wiggle-camera-light.service
   systemctl --user enable --now wiggle-api.service  
-  # systemctl --user enable --now wiggle-sensors.timer
+  systemctl --user enable --now wiggle-sensors.timer
   # systemctl --user enable --now wiggle-inference.service
   # systemctl --user enable --now wiggle-sensors-gate.service  
   # systemctl --user enable --now wiggle-sensors-accelerometer.service
